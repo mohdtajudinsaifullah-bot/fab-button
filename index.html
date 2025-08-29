@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAB Button</title>
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body {
+  margin: 0;
+  background: transparent;
+  height: 100vh;
+}
+
+/* Container melekat bawah kanan */
+.fab-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+/* Main button */
+.fab-button {
+  width: 60px;
+  height: 60px;
+  background: #2c7a7b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+
+/* Sub menu */
+.fab-options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 70px;
+  right: 5px;
+}
+
+.fab-options li {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translateY(0);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+/* Warna */
+.instagram { background: #e1306c; }
+.twitter   { background: #1da1f2; }
+.whatsapp  { background: #25d366; }
+.phone     { background: #f44336; }
+.email     { background: #ff5722; }
+
+/* Animasi */
+.fab-container.active .fab-options li {
+  opacity: 1;
+}
+.fab-container.active .fab-options li:nth-child(1) { transform: translateY(-70px);  transition-delay: 0.05s; }
+.fab-container.active .fab-options li:nth-child(2) { transform: translateY(-140px); transition-delay: 0.1s; }
+.fab-container.active .fab-options li:nth-child(3) { transform: translateY(-210px); transition-delay: 0.15s; }
+.fab-container.active .fab-options li:nth-child(4) { transform: translateY(-280px); transition-delay: 0.2s; }
+.fab-container.active .fab-options li:nth-child(5) { transform: translateY(-350px); transition-delay: 0.25s; }
+</style>
+</head>
+<body>
+
+<div class="fab-container" id="fab-container">
+  <!-- Main button -->
+  <div class="fab-button" onclick="toggleFAB()">
+    <i class="fa-solid fa-phone"></i>
+  </div>
+
+  <!-- Menu -->
+  <ul class="fab-options">
+    <li class="instagram"><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+    <li class="twitter"><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+    <li class="whatsapp"><a href="https://wa.me/60123456789" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+    <li class="phone"><a href="tel:+60123456789"><i class="fa-solid fa-phone"></i></a></li>
+    <li class="email"><a href="mailto:email@contoh.com"><i class="fa-solid fa-envelope"></i></a></li>
+  </ul>
+</div>
+
+<script>
+function toggleFAB() {
+  document.getElementById("fab-container").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
